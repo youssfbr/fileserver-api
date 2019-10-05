@@ -18,6 +18,10 @@ public class Disco {
 	@Value("${arquivo.disco.diretorio-arquivos}")
 	private String diretorioArquivos;
 	
+	public void salvarArquivo(MultipartFile arquivo) {
+		this.salvar(this.diretorioArquivos, arquivo);
+	}
+	
 	public void salvar(String diretorio, MultipartFile arquivoUpload) {
 		Path diretorioPath = Paths.get(this.raiz, diretorio);
 		Path arquivoPath = diretorioPath.resolve(arquivoUpload.getOriginalFilename());
